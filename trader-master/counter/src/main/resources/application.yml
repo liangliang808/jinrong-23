@@ -1,0 +1,57 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/counter?serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 6000ms
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: 'null' #注意：单引号
+
+
+#缓存过期时间
+cacheexpire:
+  captcha: 100
+  account: 3600
+  order: 36000
+
+#机器位置
+counter:
+  #柜台ID
+  id: 1000
+
+  #网关ID
+  gatewayid: 1001
+
+  #  TCP 直连网关端口
+  sendip: 127.0.0.1
+  sendport: 8091
+
+  #  订阅回包
+  subbusip: 127.0.0.1
+  subbusport: 1883
+
+  # 发布行情和委托
+  pubport: 8501
+
+  # 机房ID
+  dataCenterId: 0
+  # 机柜ID
+  workerId: 0
+
+  # 编码解码器
+  checksum: thirdpart.checksum.ByteCheckSum
+  bodycodec: thirdpart.codec.BodyCodec
+  msgcodec: thirdpart.codec.MsgCodec
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="transferMapper" >
+
+    <select id="queryTransfer"
+            resultType="com.softeem.beans.TransferInfo"
+            parameterType="hashmap"
+    >
+        select
+          t.uid,
+          t.date,
+          t.time,
+          t.bank,
+          t.type,
+          t.moneytype,
+          t.money
+        from t_transfer t
+        where t.uid = #{UId}
+            and t.date between #{StartDate} and #{EndDate}
+    </select>
+
+
+</mapper>
